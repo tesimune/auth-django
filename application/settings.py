@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'account',
+    'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -97,6 +99,20 @@ CACHES = {
         }
     }
 }
+
+# settings.py
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT Authorization header using the Bearer scheme. Example: 'Bearer {token}'",
+        }
+    },
+}
+
 
 # Store sessions in Redis
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
